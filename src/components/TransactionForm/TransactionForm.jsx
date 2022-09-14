@@ -1,29 +1,29 @@
-const TransactionForm = () => {
+const TransactionForm = ({ openCategories }) => {
   return (
-    <form action="">
-      <label>
+    <form action="submit">
+      <label htmlFor="date">
         <p>Date</p>
         <input type="date" />
       </label>
-      <label>
+      <label htmlFor="">
         <p>Time</p>
         <input type="time" />
       </label>
-      <label>
+      <label htmlFor="">
         <p>Category</p>
-        <input type="button" value={"Food"} />
+        <input type="button" value={'Category'} onClick={() => openCategories()} />
       </label>
-      <label>
-        <p>Summ</p>
-        <input type="text" placeholder="Input summ" />
+      <label htmlFor="">
+        <p>Sum</p>
+        <input type="text" />
       </label>
-      <label>
+      <label htmlFor="">
         <p>Currency</p>
-        <input type="button" value={"UAH"} />
+        <input type="button" value={'UAH'} onChange={null} />
       </label>
-      <label>
-        <input type="text" placeholder="Comment" />
-      </label>
+      <div>
+        <input type="text" placeholder="Comment" name="" id="" />
+      </div>
     </form>
   );
 };

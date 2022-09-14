@@ -1,14 +1,29 @@
 
+import {Component} from 'react';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
+import TransactionHistoryPage from "./components/TransactionHistoryPage/TransactionHistoryPage";
 
-function App() {
+export class App extends Component {
+  state = {
+  activePage: "main",
+  }
+
+  changePageHandler = (page) => {
+    this.setState({activePage: page})
+  }
+ 
+
+ render () { 
   return (
     <div className="App">
-   
-      <MainPage/>
+      {this.state.activePage === 'main' ? <MainPage
+      changePageHandler ={this.changePageHandler}/> 
+      : <TransactionHistoryPage
+          changePageHandler={this.changePageHandler}
+          transactionType = {this.state.activePage}/>}
     </div>
-  );
+  )};
 }
 
-export default App;
+

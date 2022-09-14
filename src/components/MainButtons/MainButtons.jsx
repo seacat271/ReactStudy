@@ -1,8 +1,8 @@
-const MainButtons = () => {
+const MainButtons = ({changePageHandler}) => {
   return (
     <div>
-      <button>Expenses</button>
-      <button>Income</button>
+      <button onClick={() => {changePageHandler("expenses")}}>Expenses</button>
+      <button onClick={() => {changePageHandler("income")}}>Income</button>
     </div>
   );
 };

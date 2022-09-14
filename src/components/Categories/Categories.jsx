@@ -3,28 +3,28 @@ import Header from "../Header/Header";
 
 
 
-const Categories = ({categoriesList}) => {
+const Categories = ({ categoriesList, closeCategories }) => {
     return (
-        <>
-        <Header title={"Categories"}/>
+      <>
+        <Header 
+        btnContent={'back'} 
+        title={'Categories'} 
+        closeCategories={closeCategories} />
         <ul>
-        {categoriesList.map(({id, category}) => {
-  return (<li key={id}>
-  <button>{category}</button>
-  <button>...</button>
-</li>)
-        })
-        }
+          {categoriesList.map(category => {
+            return <li key={category.id}>{category.name}</li>;
+          })}
         </ul>
-        <form>
-            <input type="text" placeholder='New category'/>
-        <button type="submit">+</button>
+        <form action="">
+          <input type="text" placeholder="New category" />
+          <button type="submit">+</button>
         </form>
-        </>
-    )
-}
-
-export default Categories;
+      </>
+    );
+  };
+  
+  export default Categories;
+  
 
 Categories.propTypes = {
     categoriesList:PropTypes.arrayOf(PropTypes.shape({
